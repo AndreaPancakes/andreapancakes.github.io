@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrea — Full-Stack Mobile Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#2C2C2A;--sage:#5B7A58;--sage-light:#E8F0E7;--sage-dark:#3D4F3C;--cream:#F5F2EC;--white:#FFFFFF;--muted:#888780;--lavender:#C4B5FD;--pink:#F8B4D9;--kd-dark:#1E1E2E;--kd-charcoal:#2D2D3F;--gold:#D4A855;--radius:8px}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:700;line-height:1.3}
+a{color:var(--sage);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.2s}
+a:hover{border-bottom-color:var(--sage)}
+.container{max-width:720px;margin:0 auto;padding:0 24px}
+.hero{padding:80px 0 60px;text-align:left}
+.hero-label{font-size:14px;color:var(--muted);letter-spacing:0.5px;margin-bottom:12px}
+.hero h1{font-size:clamp(32px,5vw,48px);color:var(--sage-dark);margin-bottom:16px}
+.hero h1 span{color:var(--sage)}
+.hero-sub{font-size:18px;color:var(--muted);max-width:540px;margin-bottom:32px}
+.hero-links{display:flex;flex-wrap:wrap;gap:12px}
+.hero-links a{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:24px;font-size:14px;font-weight:500;border:1px solid var(--sage);color:var(--sage);transition:all 0.2s}
+.hero-links a:hover{background:var(--sage);color:var(--white);border-bottom-color:var(--sage)}
+.hero-links a.primary{background:var(--sage-dark);color:var(--white);border-color:var(--sage-dark)}
+.hero-links a.primary:hover{background:var(--sage);border-color:var(--sage)}
+.section{padding:48px 0;border-top:1px solid rgba(91,122,88,0.15)}
+.section-label{font-size:13px;color:var(--sage);font-weight:500;letter-spacing:0.3px;margin-bottom:8px}
+.section h2{font-size:28px;color:var(--sage-dark);margin-bottom:16px}
+.section p{color:#555;max-width:600px;margin-bottom:16px}
+.project{background:var(--white);border:1px solid rgba(91,122,88,0.12);border-radius:12px;padding:32px;margin-bottom:24px}
+.project-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.project h3{font-size:22px;color:var(--sage-dark)}
+.project-badge{font-size:12px;font-weight:500;padding:4px 12px;border-radius:12px;white-space:nowrap}
+.badge-live{background:var(--sage-light);color:var(--sage)}
+.badge-soon{background:#FFF3E0;color:var(--gold)}
+.project-desc{color:#555;margin-bottom:20px;line-height:1.8}
+.project-stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.project-stack span{font-size:12px;padding:4px 10px;border-radius:4px;background:var(--sage-light);color:var(--sage-dark);font-weight:500}
+.project-features{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;margin-bottom:20px}
+.project-features li{font-size:14px;color:#666;list-style:none;padding-left:20px;position:relative}
+.project-features li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--sage-light);border:1.5px solid var(--sage)}
+.project-links{display:flex;gap:12px;flex-wrap:wrap}
+.project-links a{font-size:13px;font-weight:500;padding:8px 16px;border-radius:20px;border:1px solid var(--sage);color:var(--sage)}
+.project-links a:hover{background:var(--sage);color:var(--white)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.skill-group h3{font-size:15px;color:var(--sage);font-family:'Inter',sans-serif;font-weight:600;margin-bottom:8px}
+.skill-group p{font-size:14px;color:#666;line-height:1.8}
+.exp-item{margin-bottom:32px}
+.exp-item h3{font-size:18px;color:var(--sage-dark);margin-bottom:4px}
+.exp-meta{font-size:13px;color:var(--muted);margin-bottom:8px}
+.exp-item p{font-size:15px;color:#555}
+.brand-section{background:var(--kd-dark);padding:48px 0;margin-top:48px}
+.brand-section .section-label{color:var(--lavender)}
+.brand-section h2{color:var(--white)}
+.brand-section p{color:rgba(255,255,255,0.7)}
+.brand-apps{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.brand-app{background:var(--kd-charcoal);border-radius:12px;padding:24px}
+.brand-app h3{font-family:'Inter',sans-serif;font-size:16px;font-weight:600;margin-bottom:4px}
+.brand-app .app-name{color:var(--pink)}
+.brand-app .app-status{font-size:12px;color:var(--lavender);margin-bottom:8px}
+.brand-app p{font-size:13px;color:rgba(255,255,255,0.6);margin:0}
+.contact{padding:48px 0;text-align:center;border-top:1px solid rgba(91,122,88,0.15)}
+.contact h2{margin-bottom:8px}
+.contact p{color:var(--muted);max-width:400px;margin:0 auto 24px}
+.contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.contact-links a{padding:10px 24px;border-radius:24px;font-size:14px;font-weight:500;border:1px solid var(--sage);color:var(--sage)}
+.contact-links a:hover{background:var(--sage);color:var(--white)}
+footer{text-align:center;padding:32px 0;font-size:12px;color:var(--muted)}
+footer span{color:var(--pink)}
+@media(max-width:600px){.hero{padding:48px 0 40px}.project-features{grid-template-columns:1fr}.brand-apps{grid-template-columns:1fr}.project{padding:24px}}
+</style>
+</head>
+<body>
+<div class="container">
+<section class="hero">
+<p class="hero-label">Andrea — KekiDev</p>
+<h1>I build apps that <span>help people</span> at home.</h1>
+<p class="hero-sub">Full-stack mobile developer. I design, build, and ship products from first commit to Google Play. Currently building a suite of home management apps under the KekiDev brand.</p>
+<div class="hero-links">
+<a href="mailto:koricct@outlook.com" class="primary">Get in touch</a>
+<a href="https://play.google.com/store/apps/details?id=com.kekidev.kori">Kori on Google Play</a>
+</div>
+</section>
+<section class="section">
+<p class="section-label">Featured project</p>
+<div class="project">
+<div class="project-header">
+<h3>Kori — kitchen companion</h3>
+<span class="project-badge badge-soon">Beta testing — Google Play</span>
+</div>
+<p class="project-desc">A calm kitchen companion that tracks every ingredient in your fridge, freezer, and pantry. Generates AI-powered recipes using only what you have. Supports shared kitchens for families with role-based access. Available in four languages including Quechua (beta). Built solo from architecture to store listing.</p>
+<div class="project-stack">
+<span>React Native</span><span>Expo</span><span>TypeScript</span><span>Supabase</span><span>PostgreSQL</span><span>Groq AI</span><span>EAS Build</span>
+</div>
+<ul class="project-features">
+<li>65+ features shipped</li>
+<li>AI recipe generation via API</li>
+<li>Row-level security on all tables</li>
+<li>Shared kitchen with invite codes</li>
+<li>Barcode scanning (Open Food Facts)</li>
+<li>USDA nutrition auto-fill</li>
+<li>4 languages (EN/ES/IT/QU)</li>
+<li>3 themes + dark mode</li>
+<li>Animated splash screen</li>
+<li>Over-the-air updates (EAS)</li>
+<li>Food waste tracking with reports</li>
+<li>Pro subscription model (planned)</li>
+</ul>
+<div class="project-links">
+<a href="https://play.google.com/store/apps/details?id=com.kekidev.kori">Google Play</a>
+<a href="https://radiant-sprite-a0b5b0.netlify.app">Privacy policy</a>
+</div>
+</div>
+<div class="project">
+<div class="project-header">
+<h3>Macya — beverage companion</h3>
+<span class="project-badge badge-soon">Coming soon</span>
+</div>
+<p class="project-desc">An alcoholic beverage and cocktail inventory with recipes. Integrates with Kori so users can see cocktail recipes that use fruits and ingredients from their kitchen. Second app in the KekiDev home management suite.</p>
+<div class="project-stack">
+<span>React Native</span><span>Expo</span><span>TypeScript</span><span>Supabase</span>
+</div>
+</div>
+</section>
+<section class="section">
+<p class="section-label">Technical skills</p>
+<h2>What I work with</h2>
+<div class="skills-grid">
+<div class="skill-group"><h3>Mobile</h3><p>React Native, Expo, EAS Build, EAS Update, TypeScript, Android (Google Play)</p></div>
+<div class="skill-group"><h3>Frontend</h3><p>React, JavaScript, HTML, CSS, jQuery, responsive design, accessibility</p></div>
+<div class="skill-group"><h3>Backend</h3><p>Supabase, PostgreSQL, Edge Functions (Deno), row-level security, REST APIs</p></div>
+<div class="skill-group"><h3>AI integration</h3><p>Groq API, prompt engineering, structured output parsing, API rate management</p></div>
+<div class="skill-group"><h3>Tools</h3><p>Git, VS Code, Claude Code (AI agents), Adobe Creative Suite, Microsoft Office</p></div>
+<div class="skill-group"><h3>Languages</h3><p>English (fluent), Spanish (native), learning Quechua</p></div>
+</div>
+</section>
+<section class="section">
+<p class="section-label">Experience</p>
+<h2>Where I have worked</h2>
+<div class="exp-item">
+<h3>Founder and Developer</h3>
+<p class="exp-meta">KekiDev — 2026 to present</p>
+<p>Building a suite of home management mobile apps. Designed, developed, and published Kori on Google Play. Managed the full product lifecycle: architecture, database design, security, AI integration, internationalization, store listing, marketing assets, and tester coordination. Set up AI development agents for QA, UX review, security auditing, translation, and performance monitoring.</p>
+</div>
+<div class="exp-item">
+<h3>Technical Support Specialist</h3>
+<p class="exp-meta">K-12 Education</p>
+<p>Provided technical support across student-facing platforms and administrative systems. Resolved issues across tools and applications I had never used before, developing a pattern of rapid self-teaching that carries into every project. Assisted administrators with student management workflows, learning complex systems quickly and guiding non-technical staff with clarity and patience.</p>
+</div>
+<div class="exp-item">
+<h3>Computer Programming and Analysis</h3>
+<p class="exp-meta">Miami Dade College — Mobile Applications Development</p>
+<p>Focused on mobile development, database design, and software architecture. Applied coursework directly to building production applications.</p>
+</div>
+<div class="exp-item">
+<h3>Computer Programming and Analysis</h3>
+<p class="exp-meta">Seminole State College</p>
+<p>Built foundational skills in programming logic, data structures, and software development methodology.</p>
+</div>
+<div class="exp-item">
+<h3>Information Systems Technology</h3>
+<p class="exp-meta">Seminole State College</p>
+<p>Studied systems administration, networking fundamentals, and enterprise technology management.</p>
+</div>
+</section>
+</div>
+<section class="brand-section">
+<div class="container">
+<p class="section-label">The brand</p>
+<h2>KekiDev</h2>
+<p>A suite of home management apps, each solving a different part of daily life. Every app shares an account system so your data works together.</p>
+<div class="brand-apps">
+<div class="brand-app"><h3 class="app-name">Kori</h3><p class="app-status">Live — Google Play</p><p>Kitchen inventory, AI recipes, meal tracking, shared family kitchen.</p></div>
+<div class="brand-app"><h3 class="app-name">Macya</h3><p class="app-status">In development</p><p>Beverage inventory, cocktail recipes, integrates with Kori.</p></div>
+<div class="brand-app"><h3 class="app-name">Suis&#333;</h3><p class="app-status">In development</p><p>Aquatic pet care, stress-free habitat builder, gamified species database and compatibility guide.</p></div>
+<div class="brand-app"><h3 style="color:var(--lavender)">App 4</h3><p class="app-status">Planned</p><p>Coming soon.</p></div>
+</div>
+</div>
+</section>
+<div class="container">
+<section class="contact">
+<h2>Let's build something</h2>
+<p>Open to freelance projects, contract work, and full-time opportunities.</p>
+<div class="contact-links">
+<a href="mailto:koricct@outlook.com">Email me</a>
+<a href="https://linkedin.com/in/YOUR-LINKEDIN">LinkedIn</a>
+<a href="https://upwork.com/freelancers/YOUR-UPWORK">Upwork</a>
+</div>
+</section>
+<footer><p>Made with <span>love</span> by KekiDev — 2026</p></footer>
+</div>
+</body>
+</html>
